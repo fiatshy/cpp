@@ -12,6 +12,16 @@ std::string	strToUpper(std::string &str)
 	return (str);
 }
 
+int	checkIfDigit(std::string &str)
+{
+	for (char &c : str)
+	{
+		if ('0' > c || c > '9')
+			return (0);
+	}
+	return (1);
+}
+
 int main(void)
 {
 	Contact 	contact;
@@ -47,7 +57,15 @@ int main(void)
 			do {
 				std::cout << "Phone Number : ";
 				getline(std::cin, userInput);
-				contact.setPhoneNumber(userInput);
+				if (checkIfDigit(userInput) == 1)
+				{
+					contact.setPhoneNumber(userInput);
+				}
+				else
+				{
+					std::cout << "Only digit is allowed for Phone number." << std::endl;
+					userInput.clear();
+				}
 			} while (contact.getPhoneNumber().empty());
 
 			pb.add(contact);
@@ -78,7 +96,7 @@ int main(void)
 				std::cout << "please add contacts by using command ADD" << std::endl << std::endl;
 			}
 		}
-		else
+		else if (strToUpper(userInput).compare("EXIT"))
 		{
 			std::cout << "Wrong command." << std::endl << std::endl;
 		}
