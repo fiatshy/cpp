@@ -23,8 +23,8 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void );
-	static int	getTotalAmount( void );
+	static int	getNbAccounts( void ){ return (_nbAccounts); };
+	static int	getTotalAmount( void ){ return (_totalAmount); };
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
 	static void	displayAccountsInfos( void );
@@ -55,6 +55,11 @@ private:
 	Account( void );
 
 };
+
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
 
 
 
