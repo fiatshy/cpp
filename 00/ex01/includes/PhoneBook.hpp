@@ -10,10 +10,12 @@ class PhoneBook
 public:
 	PhoneBook();
 	~PhoneBook();
-	void	add(Contact contact);
-	void	search(int index);
-	void	printContact(int index);
-	void	printPhotoBook(void);
+	void		add(Contact contact);
+	int			search(int index);
+	void		printContact(int index);
+	void		printPhoneBook(void);
+	std::string	adjustLength(std::string str);
+	int			getLengthOfContact(void);
 private:
 	Contact _contact[MAX];
 	int		_index;
